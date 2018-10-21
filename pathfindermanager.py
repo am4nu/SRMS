@@ -9,11 +9,11 @@ app = Flask(__name__)
 app.config["SQLAlCHEMY_DATABASE_URI"] = db_file
 db=SQLAlchemy(app)
 
-@app.route("/",methods=["POST","GET"])
+@app.route("/mgmt",methods=["POST","GET"])
 def home():
 	if request.form:
 		print(request.form)
-	return render_template("home.html")
+	return render_template("index.html")
   
 if __name__ == "__main__":
     app.run(debug=True)
