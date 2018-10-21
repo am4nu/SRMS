@@ -14,6 +14,21 @@ def home():
 	if request.form:
 		print(request.form)
 	return render_template("index.html")
+
+class Pathfinder(db.Model):
+	id=db.Column(BigInteger().with_variant(Integer,"sqlite"),primary_key=True)
+	firstname=db.Column(db.String(80),nullable=False)
+	lastname=db.Column(db.String(80),nullable=False)
+	middlename=db.Column(db.String(80),nullable=True)
+	addr=db.Column(db.String(80),nullable=False)
+	school=db.Column(db.String(80),nullable=True)
+	fname=db.Column(db.String(80),nullable=True)
+	phone=db.Column(db.String(80),nullable=True)
+	batch=db.Column(db.String(4),nullable=True)
+	dateAdd=db.Column(db.String(10),nullable=False)
+	optradio=db.Column(db.String(10),nullable=False)
+	
+	
   
 if __name__ == "__main__":
     app.run(debug=True)
