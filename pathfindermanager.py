@@ -13,14 +13,18 @@ app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 
 db = SQLAlchemy(app)
 class Pathfinder(db.Model):
-	id=db.Column(db.Integer,nullable=False,primary_key=True)
+	id=db.Column(db.Integer,nullable=False,primary_key=True,unique=True)
 	firstname=db.Column(db.String(80),nullable=False)
 	lastname=db.Column(db.String(80),nullable=False)
 	middlename=db.Column(db.String(80),nullable=True)
 	addr=db.Column(db.String(80),nullable=False)
 	school=db.Column(db.String(80),nullable=True)
 	fname=db.Column(db.String(80),nullable=True)
+<<<<<<< HEAD
 	phone=db.Column(db.Integer,nullable=True)
+=======
+	phone=db.Column(db.Integer,nullable=True,unique=True)
+>>>>>>> 6a6090596730cd066dc11f7d885cb28a5e8ed94d
 	batch=db.Column(db.String(4),nullable=True)
 	dateAdd=db.Column(db.String(10),nullable=False)
 	optradio=db.Column(db.String(10),nullable=False)
