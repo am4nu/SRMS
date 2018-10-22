@@ -1,2 +1,10 @@
 # SRMS
-Python/Flask/SQLAlchemy/,HTML/Bootstrap,Sqlite3
+PreRequistes 
+
+Python 3.6
+SQLAlchemy
+flask-sqlalchemy
+flask
+
+Front End written in
+HTML/Bootstrap
