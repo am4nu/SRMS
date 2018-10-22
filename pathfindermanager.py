@@ -1,9 +1,8 @@
+#Python 3.6 Code
 import os
-
 from flask import Flask
 from flask import render_template
 from flask import request
-
 from flask_sqlalchemy import SQLAlchemy
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -21,7 +20,7 @@ class Pathfinder(db.Model):
 	addr=db.Column(db.String(80),nullable=False)
 	school=db.Column(db.String(80),nullable=True)
 	fname=db.Column(db.String(80),nullable=True)
-	phone=db.Column(db.Integer,nullable=True,)
+	phone=db.Column(db.Integer,nullable=True)
 	batch=db.Column(db.String(4),nullable=True)
 	dateAdd=db.Column(db.String(10),nullable=False)
 	optradio=db.Column(db.String(10),nullable=False)
