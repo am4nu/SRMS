@@ -1,7 +1,7 @@
 #Python 3.6 Code
 import os
 import datetime
-from flask import Flask
+from flask import Flask, redirect
 from flask import render_template
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
@@ -73,15 +73,15 @@ def home():
 		dateAdd=request.form.get("dateAdd")
 		optradio=request.form.get("optradio")
 		pathfinder=Pathfinder(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln,middlename=mn,addr=addr,phone=phone,school=school,fname=fname,batch=batch,dateAdd=dateAdd,optradio=optradio)
-		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd)).all()
+		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd)).all() #queries for that particular record in the db
 		#print(pt)
-		if(len(pt)==0):
+		if(len(pt)==0): #if the record is not alrdy there it add's it
 			db.session.add(pathfinder)
 			db.session.commit()
 			temp=Reg(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln)
 			db.session.add(temp)
 			db.session.commit()
-			return '<h1>Record added Successfully, Congrats!</h1>'
+			return redirect("/show")
 		else:
 			return '<h1>Error Record with same FirstName Lastname Phone and DOB exists</h1>'
 	else:
@@ -108,8 +108,11 @@ def pay():
 			return '<h1>The student paid, Congrats!</h1>'
 	
 	else:	
-		return render_template("pay.html")	
-		
+		return render_template("pay.html")
+@app.route("/show",methods=["GET"])
+def show():
+	stu=Pathfinder.query.all()
+	return render_template("shows.html",stu=stu)
   
 if __name__ == "__main__":
     app.run(debug=True)
