@@ -81,7 +81,7 @@ def home():
 			temp=Reg(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln)
 			db.session.add(temp)
 			db.session.commit()
-			return redirect("/show")
+			return redirect("/students")
 		else:
 			return '<h1>Error Record with same FirstName Lastname Phone and DOB exists</h1>'
 	else:
@@ -97,22 +97,27 @@ def pay():
 		dob=request.form.get("dob")
 		inv=request.form.get("invoice")
 		now = datetime.datetime.now()
-		tm= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dob)).all()
+		tm= Reg.query.filter_by(id=fn+ln+str(phone)+str(dob)).first()
+		print(tm)
 		if(len(tm)==0):
 			return '<h1> The Student is not in the system kindly retype and make sure the input you provided is right</h1>'
-		if now.month==1:
-			print("i am here")
-			temp=Reg(october_invoice=inv,october=True)
-			db.session.add(temp)
-			db.session.commit()
-			return '<h1>The student paid, Congrats!</h1>'
-	
+		else:
+			if now.month==10:
+				print("tm.october_invoice")
+				tm.october=True
+				tm.october_invoice=500
+				return '<h1>The student paid, Congrats!</h1>'
 	else:	
 		return render_template("pay.html")
-@app.route("/show",methods=["GET"])
+		
+@app.route("/students",methods=["GET"])
 def show():
 	stu=Pathfinder.query.all()
 	return render_template("shows.html",stu=stu)
+@app.route("/invoice",methods=["GET"])
+def invoice():
+	inv=Reg.query.all()
+	return inv
   
 if __name__ == "__main__":
     app.run(debug=True)

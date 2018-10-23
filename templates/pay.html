@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Pathfinder | Invoice</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
+
+{% extends "layout.html" %}
+{% block title %} Pathfinder | Invoice Record{% endblock %}
+{% block body %}
 <div class="row">
 
  <div class="col-xs-6 col-sm-offset-3">
@@ -23,7 +16,7 @@
 	<br>
     <input type="text" class="form-control"name="lastname" placeholder="Enter lastname">
 	<br>
-	 <input type="date"class="form-control" name="dob"placeholder="dob"label="DOB">
+	 <input type="date"class="form-control" name="dob"placeholder="dob">
 	<br>
 	<input type="number"class="form-control" name="invoice"placeholder="amount">
 	<br>
@@ -36,5 +29,4 @@
   </div>
   </div>
 </form>
-</body>
-</html>
+{% endblock %}
