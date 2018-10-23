@@ -59,7 +59,7 @@ class Reg(db.Model):
 	def __repr__(self):
 		return "<ID {} >".format(str(self.id))
 		
-@app.route("/reg",methods=["POST","GET"])
+@app.route("/regi",methods=["POST","GET"])
 def home():
 	if request.method=="POST":
 		fn=request.form.get("firstname")
@@ -71,6 +71,7 @@ def home():
 		phone=request.form.get("phone")
 		batch=request.form.get("batch")
 		dateAdd=request.form.get("dateAdd")
+		cls=requeest.form.get("cls")
 		optradio=request.form.get("optradio")
 		pathfinder=Pathfinder(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln,middlename=mn,addr=addr,phone=phone,school=school,fname=fname,batch=batch,dateAdd=dateAdd,optradio=optradio)
 		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd)).all() #queries for that particular record in the db
@@ -98,14 +99,14 @@ def pay():
 		inv=request.form.get("invoice")
 		now = datetime.datetime.now()
 		tm= Reg.query.filter_by(id=fn+ln+str(phone)+str(dob)).first()
-		print(tm)
-		if(len(tm)==0):
+		if(tm==None):
 			return '<h1> The Student is not in the system kindly retype and make sure the input you provided is right</h1>'
 		else:
 			if now.month==10:
 				print("tm.october_invoice")
 				tm.october=True
 				tm.october_invoice=500
+				db.session.commit()
 				return '<h1>The student paid, Congrats!</h1>'
 	else:	
 		return render_template("pay.html")
