@@ -71,7 +71,7 @@ def home():
 		phone=request.form.get("phone")
 		batch=request.form.get("batch")
 		dateAdd=request.form.get("dateAdd")
-		cls=requeest.form.get("cls")
+		cls=request.form.get("cls")
 		optradio=request.form.get("optradio")
 		pathfinder=Pathfinder(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln,middlename=mn,addr=addr,phone=phone,school=school,fname=fname,batch=batch,dateAdd=dateAdd,optradio=optradio)
 		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd)).all() #queries for that particular record in the db
@@ -105,7 +105,7 @@ def pay():
 			if now.month==10:
 				print("tm.october_invoice")
 				tm.october=True
-				tm.october_invoice=500
+				tm.october_invoice+=int(inv)
 				db.session.commit()
 				return '<h1>The student paid, Congrats!</h1>'
 	else:	
@@ -115,10 +115,12 @@ def pay():
 def show():
 	stu=Pathfinder.query.all()
 	return render_template("shows.html",stu=stu)
+	
 @app.route("/invoice",methods=["GET"])
 def invoice():
 	inv=Reg.query.all()
-	return inv
+	return render_template("reciept.html",inv=inv)
+	
   
 if __name__ == "__main__":
     app.run(debug=True)

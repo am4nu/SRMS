@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %} Pathfinder | All Student Records{% endblock %}
+{% block body %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Jan</th>
+	  <th scope="col">Feb</th>
+	  <th scope="col">March</th>
+      <th scope="col">Aprill</th>
+      <th scope="col">May</th>
+      <th scope="col">June</th>
+	  <th scope="col">July</th>
+	   <th scope="col">Aug</th>
+	  <th scope="col">Sept</th>
+	  <th scope="col">Oct</th>
+      <th scope="col">Nov</th>
+      <th scope="col">Dec</th>
+
+    </tr>
+  </thead>
+  <tbody>
+   {% for itr in inv %}
+   <tr>
+      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.january_invoice}}Rs </td> <td> {{itr.february_invoice}}Rs </td>
+	  <td> {{itr.march_invoice}}Rs </td> <td>{{itr.aprill_invoice}}Rs</td><td>{{itr.may_invoice}}Rs</td> <td>{{itr.june_invoice}}Rs</td> <td>{{itr.july_invoice}}Rs</td>
+	  <td> {{itr.august_invoice}}Rs </td> <td>{{itr.september_invoice}}Rs</td><td>{{itr.october_invoice}}Rs</td> <td>{{itr.november_invoice}}Rs</td> <td>{{itr.december_invoice}}Rs</td>
+	</tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
