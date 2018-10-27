@@ -1,42 +1,71 @@
 
 {% extends "layout.html" %}
-{% block title %} Pathfinder | Classes | Billing{% endblock %}
+{% block title %} Pathfinder | Invoice Record{% endblock %}
 {% block body %}
 <div class="row">
+ <div class="col-xs-12">
+<h2 align="center"> REGISTERED STUDENTS FOR THIS YEAR IN PATHFINDER </h2>
+<table class="table" id="tb1">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Phone</th>
+	  <th scope="col">AddDate</th>
+	  <th scope="col">Address</th>
+      <th scope="col">School</th>
+      <th scope="col">Category</th>
+      <th scope="col">Batch</th>
+	  <th scope="col">Class</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for itr in stu %}
+   
+   <tr>
+   
+      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}} </td> <td> {{itr.dateAdd}} </td>
+	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.class}}</td>
+	</tr>
+    {% endfor %}
+  </tbody>
+  </table>
+</div>
+</div>
 
- <div class="col-xs-6 col-sm-offset-3">
-<h2>Pathfinder Classes Student Mangement System</h2>
-</div>
-</div>
-<form method="POST" action="/regi">
-  <div class="form-group row">
-  <div class="col-xs-6 col-sm-offset-3">
+
   
-    <input type="text" class="form-control" name="firstname" placeholder="Enter Firstname">
+  <div class="form-group row">
+  <div class="col-xs-6 col-xs-offset-3">
+  <form method="POST" action="/">
+  <h2>Select a row from the table Below and Pay</h1>
+    <input type="text" class="form-control" name="id" id="id"placeholder="Select The Table below to select value of ID here">
 	<br>
-    <input type="text" class="form-control"name="lastname" placeholder="Enter lastname">
+	<input type="number"class="form-control" name="amount"placeholder="Enter the amount the student with the above id wants you to pay">
 	<br>
-    <input type="text" class="form-control" name="middlename" placeholder="Enter Middle Name">
-	<br>
-	<input type="text" class="form-control" name="addr" placeholder="Enter Address">
-	<br>
-	<input type="text" class="form-control" name="school" placeholder="Enter School">
-	<br>
-	<input type="text" class="form-control" name="fname" placeholder="Enter Guardian's Name">
-	<br>
-	<input type="tel" class="form-control"id="phone" name="phone"placeholder="Enter 10 digit Guardian's Number" pattern="[0-9]{10}"required />
-	<br>
-	<input type="number" class="form-control" name="cls" placeholder="Enter Class">
-	<br>
-	<input type="text" class="form-control" name="batch" placeholder="Enter Batch">
-	<br>
-	<input type="date"class="form-control" name="dateAdd"placeholder="Enter registration date">
-	<br>
-	<label><input type="radio" class="form-control" name="optradio" value="General">General Category</label>
-	<label><input type="radio" class="form-control" name="optradio" value="NotGeneral">Reserved Category</label>
 	<br>
 	
-  <button type="submit" class="form-control btn btn-primary">Submit</button>
+  <button type="submit" class="form-control btn btn-primary">Pay Now</button>
+  </form>
   </div>
-  </div>
+
+  
+
+
+  <script>
+    
+                var table = document.getElementById('tb1');
+                
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                         //rIndex = this.rowIndex;
+                         document.getElementById("id").value = this.cells[0].innerHTML;
+						 
+                    };
+                }
+    
+         </script>
 {% endblock %}

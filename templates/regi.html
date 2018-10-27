@@ -1,0 +1,42 @@
+
+{% extends "layout.html" %}
+{% block title %} Pathfinder | Classes | Billing{% endblock %}
+{% block body %}
+<div class="row">
+
+ <div class="col-xs-6 col-sm-offset-3">
+<h2>Pathfinder Classes Student Mangement System</h2>
+</div>
+</div>
+<form method="POST" action="/regi">
+  <div class="form-group row">
+  <div class="col-xs-6 col-sm-offset-3">
+  
+    <input type="text" class="form-control" name="firstname" placeholder="Enter Firstname">
+	<br>
+    <input type="text" class="form-control"name="lastname" placeholder="Enter lastname">
+	<br>
+    <input type="text" class="form-control" name="middlename" placeholder="Enter Middle Name">
+	<br>
+	<input type="text" class="form-control" name="addr" placeholder="Enter Address">
+	<br>
+	<input type="text" class="form-control" name="school" placeholder="Enter School">
+	<br>
+	<input type="text" class="form-control" name="fname" placeholder="Enter Guardian's Name">
+	<br>
+	<input type="tel" class="form-control"id="phone" name="phone"placeholder="Enter 10 digit Guardian's Number" pattern="[0-9]{10}"required />
+	<br>
+	<input type="number" class="form-control" name="cls" placeholder="Enter Class">
+	<br>
+	<input type="text" class="form-control" name="batch" placeholder="Enter Batch">
+	<br>
+	<input type="date"class="form-control" name="dateAdd"placeholder="Enter registration date">
+	<br>
+	<label><input type="radio" class="form-control" name="optradio" value="General">General Category</label>
+	<label><input type="radio" class="form-control" name="optradio" value="NotGeneral">Reserved Category</label>
+	<br>
+	
+  <button type="submit" class="form-control btn btn-primary">Submit</button>
+  </div>
+  </div>
+{% endblock %}

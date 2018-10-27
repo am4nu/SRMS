@@ -86,37 +86,37 @@ def home():
 		else:
 			return '<h1>Error Record with same FirstName Lastname Phone and DOB exists</h1>'
 	else:
-		return render_template("index.html")
+		return render_template("regi.html")
 	
 	
-@app.route("/pay",methods=["POST","GET"])
+@app.route("/",methods=["POST","GET"])
 def pay():
 	if request.method=="POST":
-		fn=request.form.get("firstname")
-		ln=request.form.get("lastname")
-		phone=request.form.get("phone")
-		dob=request.form.get("dob")
-		inv=request.form.get("invoice")
+		id=request.form.get("id")
+		amount=request.form.get("amount")
+		tm= Reg.query.filter_by(id=id).first()
 		now = datetime.datetime.now()
-		tm= Reg.query.filter_by(id=fn+ln+str(phone)+str(dob)).first()
 		if(tm==None):
 			return '<h1> The Student is not in the system kindly retype and make sure the input you provided is right</h1>'
 		else:
 			if now.month==10:
 				print("tm.october_invoice")
 				tm.october=True
-				tm.october_invoice+=int(inv)
+				tm.october_invoice+=int(amount)
 				db.session.commit()
-				return '<h1>The student paid, Congrats!</h1>'
-	else:	
-		return render_template("pay.html")
+				inv=Reg.query.all()
+				return render_template("reciept.html",inv=inv)
+
+	else:
+		stu=Pathfinder.query.all()
+		return render_template("index.html",stu=stu)
 		
 @app.route("/students",methods=["GET"])
 def show():
 	stu=Pathfinder.query.all()
 	return render_template("shows.html",stu=stu)
 	
-@app.route("/invoice",methods=["GET"])
+@app.route("/",methods=["GET"])
 def invoice():
 	inv=Reg.query.all()
 	return render_template("reciept.html",inv=inv)

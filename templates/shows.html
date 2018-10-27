@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block title %} Pathfinder | All Student Records{% endblock %}
 {% block body %}
-<table class="table">
+
+<table class="table" id="tb1">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -18,7 +19,9 @@
   </thead>
   <tbody>
    {% for itr in stu %}
+   
    <tr>
+   
       <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}} </td> <td> {{itr.dateAdd}} </td>
 	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.class}}</td>
 	</tr>
