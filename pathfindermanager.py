@@ -1,7 +1,7 @@
 #Python 3.6 Code
 import os
 import datetime
-from flask import Flask, redirect
+from flask import Flask, redirect,session
 from flask import render_template
 from flask import request
 from flask_sqlalchemy import SQLAlchemy
@@ -25,6 +25,8 @@ class Pathfinder(db.Model):
 	batch=db.Column(db.String(4),nullable=True)
 	dateAdd=db.Column(db.String(10),nullable=False)
 	optradio=db.Column(db.String(10),nullable=False)
+	cls=db.Column(db.Integer,nullable=False)
+	
 	def __repr__(self):
 		return "<ID & Name  {} >".format(str(self.id))
 		
@@ -59,8 +61,26 @@ class Reg(db.Model):
 	def __repr__(self):
 		return "<ID {} >".format(str(self.id))
 		
+@app.route('/login', methods=['POST',"GET"])
+def do_admin_login():
+	if request.method=="POST":
+		if request.form['password'] == 'password' and request.form['username'] == 'admin':
+			session['logged_in'] = True
+			return redirect("/regi")
+		else:
+			return "<h1>wrong password or username Try Again:? <a href='/login'>Go to login page</a></h1>"
+	else:
+		return render_template("/login.html")
+    
+@app.route("/logout")
+def logout():
+    session['logged_in'] = False
+    return redirect("/login")
+		
 @app.route("/regi",methods=["POST","GET"])
 def home():
+	if not session.get('logged_in'):
+		return render_template('login.html')	
 	if request.method=="POST":
 		fn=request.form.get("firstname")
 		ln=request.form.get("lastname")
@@ -73,8 +93,8 @@ def home():
 		dateAdd=request.form.get("dateAdd")
 		cls=request.form.get("cls")
 		optradio=request.form.get("optradio")
-		pathfinder=Pathfinder(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln,middlename=mn,addr=addr,phone=phone,school=school,fname=fname,batch=batch,dateAdd=dateAdd,optradio=optradio)
-		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd)).all() #queries for that particular record in the db
+		pathfinder=Pathfinder(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln,middlename=mn,addr=addr,phone=phone,school=school,cls=cls,fname=fname,batch=batch,dateAdd=dateAdd,optradio=optradio)
+		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd),).all() #queries for that particular record in the db
 		#print(pt)
 		if(len(pt)==0): #if the record is not alrdy there it add's it
 			db.session.add(pathfinder)
@@ -91,6 +111,8 @@ def home():
 	
 @app.route("/",methods=["POST","GET"])
 def pay():
+	if not session.get('logged_in'):
+		return render_template('login.html')
 	if request.method=="POST":
 		id=request.form.get("id")
 		amount=request.form.get("amount")
@@ -110,17 +132,31 @@ def pay():
 	else:
 		stu=Pathfinder.query.all()
 		return render_template("index.html",stu=stu)
+
+@app.route("/delete", methods=["POST"])
+def delete():
+	if not session.get('logged_in'):
+		return render_template('login.html')
+	id = request.form.get("id2")
+	tmp = Pathfinder.query.filter_by(id=id).first()
+	db.session.delete(tmp)
+	db.session.commit()
+	t= Reg.query.filter_by(id=id).first()
+	db.session.delete(t)
+	db.session.commit()
+	return redirect("/")
 		
 @app.route("/students",methods=["GET"])
 def show():
 	stu=Pathfinder.query.all()
 	return render_template("shows.html",stu=stu)
 	
-@app.route("/",methods=["GET"])
+@app.route("/payments",methods=["GET"])
 def invoice():
 	inv=Reg.query.all()
 	return render_template("reciept.html",inv=inv)
 	
   
 if __name__ == "__main__":
-    app.run(debug=True)
+	app.secret_key = os.urandom(12)
+	app.run(debug=True)

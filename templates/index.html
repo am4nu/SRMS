@@ -1,10 +1,11 @@
 
 {% extends "layout.html" %}
-{% block title %} Pathfinder | Invoice Record{% endblock %}
+{% block title %} Student Management System | PATHFINDER {% endblock %}
 {% block body %}
+
 <div class="row">
  <div class="col-xs-12">
-<h2 align="center"> REGISTERED STUDENTS FOR THIS YEAR IN PATHFINDER </h2>
+<h2 class="text-success text-center"> CURRENTLY REGISTERED STUDENTS </h2>
 <table class="table" id="tb1">
   <thead>
     <tr>
@@ -26,7 +27,7 @@
    <tr>
    
       <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}} </td> <td> {{itr.dateAdd}} </td>
-	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.class}}</td>
+	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.cls}}</td>
 	</tr>
     {% endfor %}
   </tbody>
@@ -37,20 +38,30 @@
 
   
   <div class="form-group row">
-  <div class="col-xs-6 col-xs-offset-3">
+  <div class="col-xs-6">
   <form method="POST" action="/">
-  <h2>Select a row from the table Below and Pay</h1>
+  <h2>Add money now</h2>
     <input type="text" class="form-control" name="id" id="id"placeholder="Select The Table below to select value of ID here">
 	<br>
 	<input type="number"class="form-control" name="amount"placeholder="Enter the amount the student with the above id wants you to pay">
 	<br>
 	<br>
 	
-  <button type="submit" class="form-control btn btn-primary">Pay Now</button>
+  <button type="submit" id="button1"class="form-control btn btn-primary">Pay Now</button>
   </form>
   </div>
-
-  
+   <div class="col-xs-6">
+   <form method="POST" action="/delete">
+   <br>
+   
+   <h2>UnRegister student</h2>
+   <br>
+   <input type="text" class="form-control" name="id2" id="id2"placeholder="Select any student from above to delete">
+	<br>
+	<br>
+	<button type="submit" class="form-control btn btn-danger">Delete Now</button>
+   </form>
+   </div>
 
 
   <script>
@@ -63,6 +74,7 @@
                     {
                          //rIndex = this.rowIndex;
                          document.getElementById("id").value = this.cells[0].innerHTML;
+						 document.getElementById("id2").value=this.cells[0].innerHTML;
 						 
                     };
                 }
