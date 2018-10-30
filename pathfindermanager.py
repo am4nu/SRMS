@@ -26,10 +26,10 @@ class Pathfinder(db.Model):
 	dateAdd=db.Column(db.String(10),nullable=False)
 	optradio=db.Column(db.String(10),nullable=False)
 	cls=db.Column(db.Integer,nullable=False)
-	
+
 	def __repr__(self):
 		return "<ID & Name  {} >".format(str(self.id))
-		
+
 class Reg(db.Model):
 	id=db.Column(db.String(100),nullable=False,primary_key=True,unique=True,autoincrement=False)
 	firstname=db.Column(db.String(80),nullable=False)
@@ -60,27 +60,27 @@ class Reg(db.Model):
 	december_invoice=db.Column(db.Integer,   default=False)
 	def __repr__(self):
 		return "<ID {} >".format(str(self.id))
-		
+app.secret_key = "something random"
 @app.route('/login', methods=['POST',"GET"])
 def do_admin_login():
 	if request.method=="POST":
-		if request.form['password'] == 'password' and request.form['username'] == 'admin':
+		if request.form['password'] == 'Secret55!' and request.form['username'] == 'noname':
 			session['logged_in'] = True
-			return redirect("/regi")
+			return redirect("/")
 		else:
 			return "<h1>wrong password or username Try Again:? <a href='/login'>Go to login page</a></h1>"
 	else:
 		return render_template("/login.html")
-    
+
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
     return redirect("/login")
-		
+
 @app.route("/regi",methods=["POST","GET"])
 def home():
 	if not session.get('logged_in'):
-		return render_template('login.html')	
+		return render_template('login.html')
 	if request.method=="POST":
 		fn=request.form.get("firstname")
 		ln=request.form.get("lastname")
@@ -102,13 +102,13 @@ def home():
 			temp=Reg(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln)
 			db.session.add(temp)
 			db.session.commit()
-			return redirect("/students")
+			return redirect("/")
 		else:
 			return '<h1>Error Record with same FirstName Lastname Phone and DOB exists</h1>'
 	else:
 		return render_template("regi.html")
-	
-	
+
+
 @app.route("/",methods=["POST","GET"])
 def pay():
 	if not session.get('logged_in'):
@@ -145,18 +145,17 @@ def delete():
 	db.session.delete(t)
 	db.session.commit()
 	return redirect("/")
-		
+
 @app.route("/students",methods=["GET"])
 def show():
 	stu=Pathfinder.query.all()
 	return render_template("shows.html",stu=stu)
-	
+
 @app.route("/payments",methods=["GET"])
 def invoice():
 	inv=Reg.query.all()
 	return render_template("reciept.html",inv=inv)
-	
-  
+
+
 if __name__ == "__main__":
-	app.secret_key = os.urandom(12)
 	app.run(debug=True)

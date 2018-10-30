@@ -5,6 +5,8 @@
 
 <div class="row">
  <div class="col-xs-12">
+      <h3 class="text-left"><a href='/regi'>REGISTER NEW STUDENT</a></h3>
+ <h3 class="text-left"><a href='/payments'>SHOW PAYMENT DETAILS</a></h3>
 <h2 class="text-success text-center"> CURRENTLY REGISTERED STUDENTS </h2>
 <table class="table" id="tb1">
   <thead>
@@ -23,9 +25,9 @@
   </thead>
   <tbody>
    {% for itr in stu %}
-   
+
    <tr>
-   
+
       <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}} </td> <td> {{itr.dateAdd}} </td>
 	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.cls}}</td>
 	</tr>
@@ -36,7 +38,7 @@
 </div>
 
 
-  
+
   <div class="form-group row">
   <div class="col-xs-6">
   <form method="POST" action="/">
@@ -46,14 +48,14 @@
 	<input type="number"class="form-control" name="amount"placeholder="Enter the amount the student with the above id wants you to pay">
 	<br>
 	<br>
-	
+
   <button type="submit" id="button1"class="form-control btn btn-primary">Pay Now</button>
   </form>
   </div>
    <div class="col-xs-6">
    <form method="POST" action="/delete">
    <br>
-   
+
    <h2>UnRegister student</h2>
    <br>
    <input type="text" class="form-control" name="id2" id="id2"placeholder="Select any student from above to delete">
@@ -64,10 +66,13 @@
    </div>
 
 
+
+
+
   <script>
-    
+
                 var table = document.getElementById('tb1');
-                
+
                 for(var i = 1; i < table.rows.length; i++)
                 {
                     table.rows[i].onclick = function()
@@ -75,9 +80,9 @@
                          //rIndex = this.rowIndex;
                          document.getElementById("id").value = this.cells[0].innerHTML;
 						 document.getElementById("id2").value=this.cells[0].innerHTML;
-						 
+
                     };
                 }
-    
+
          </script>
 {% endblock %}
