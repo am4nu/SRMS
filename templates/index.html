@@ -1,436 +1,91 @@
-<!DOCTYPE html>
 
-<html lang="en" style="height: 100%">
-    <head>
-        <meta charset="utf-8">
-        <title>index.html : /home/amaanooo/mysite/templates/index.html : Editor : amaanooo : PythonAnywhere</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="index.html : /home/amaanooo/mysite/templates/index.html : Editor : amaanooo : PythonAnywhere">
-        <meta name="author" content="PythonAnywhere LLP">
-        <meta name="google-site-verification" content="O4UxDrfcHjC44jybs2vajc1GgRkTKCTRgVzeV6I9V14" />
-
-
-        <!-- Le styles -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" />
-
-        <link rel="stylesheet" href="/static/CACHE/css/3a3f5ce2ea2b.css" type="text/css" media="screen" />
-        <link rel="stylesheet" href="/static/CACHE/css/a5c0829f431b.css" type="text/css" /><link rel="stylesheet" href="/static/CACHE/css/530e08074128.css" type="text/css" media="screen" />
-
-        <!-- Le javascript -->
-        <script type="text/javascript">
-            var Anywhere = {};
-            Anywhere.urls = {};
-            Anywhere.csrfToken = "v69gCWlc4RCtTydX0rqo1S6qJH5hPCgs";
-        </script>
-        <script type="text/javascript" src="/static/CACHE/js/efd0f9224b4c.js"></script>
-        
-
-        <script type="text/javascript" src="/static/CACHE/js/59350fc29061.js"></script>
-        
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $.extend(Anywhere.urls, {
-          file: "/user/amaanooo/files/home/amaanooo/mysite/templates/index.html",
-          check_hash: "/user/amaanooo/files/home/amaanooo/mysite/templates/index.html",
-          update_editor_mode_preference: "/user/amaanooo/account/update_editor_mode_preference",
-          console_api: "/api/v0/user/amaanooo/consoles/",
-        });
-        var filename = "/home/amaanooo/mysite/templates/index.html";
-        var hash = "db66a51a23644fede28c687469b313f6";
-        var interpreter = "None";
-
-        
-            Anywhere.Editor.InitialiseAce(ace, Anywhere.urls, filename, hash, interpreter);
-            $("#id_keybinding_mode_select").val("normal");
-            $("#id_keybinding_mode_select").trigger("change");
-        
-        var consoleVisible = false;
-        Anywhere.Editor.splitPanes(consoleVisible);
-
-        Anywhere.WebAppControl.initialize();
-        Anywhere2.initializeFileSharingOptions(
-          $('#id_file_sharing_options')[0],
-          {
-            url: "/api/v0/user/amaanooo/files/sharing/",
-            csrfToken: "v69gCWlc4RCtTydX0rqo1S6qJH5hPCgs",
-            path: "/home/amaanooo/mysite/templates/index.html"
-          }
-        );
-
-      });
-    </script>
-
-        
-
-        <!-- Le fav and touch icons -->
-        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-
-
-
-    </head>
-
-     <body style="height:100%;">
-       <div style="min-height: 100%; position: relative;">
-        
-  
-
-
-
-
-  <nav class="navbar navbar-default fullscreen-main-navbar">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <img id="id_logo" src="/static/anywhere/images/PA-logo-snake-only.svg" height="100%" />
-      </a>
-    </div>
-
-    <div class="extra-nav-content">
-      
-
-  <div id="id_editor_toolbar">
-
-    <div class="pull-left">
-      <span id="id_breadcrumbs_div"><a class="breadcrumbs_link breadcrumb_entry" href="/user/amaanooo/files/">/</a><a class="breadcrumbs_link breadcrumb_entry" href="/user/amaanooo/files/home">home</a><span class="breadcrumb_entry">/</span><a class="breadcrumbs_link breadcrumb_entry" href="/user/amaanooo/files/home/amaanooo">amaanooo</a><span class="breadcrumb_entry">/</span><a class="breadcrumbs_link breadcrumb_entry" href="/user/amaanooo/files/home/amaanooo/mysite">mysite</a><span class="breadcrumb_entry">/</span><a class="breadcrumbs_link breadcrumb_entry" href="/user/amaanooo/files/home/amaanooo/mysite/templates">templates</a><span class="breadcrumb_entry">/</span><wbr><span class="breadcrumb_entry breadcrumb_terminal">index.html</span></span>
-
-      <span>
-        <span id="id_unsaved_changes_spacer">
-          <span id="id_unsaved_changes" class="pa_hidden muted">(unsaved changes)</span>
-        </span>
-      </span>
-    </div>
-
-    <div id="id_editor_messages" class="pull-left">
-      
-
-    </div>
-
-    <div class="pull-right">
-      <div id="id_editor_buttons_right" class="form-inline">
-        <span id="id_save_error" class="pa_hidden alert alert-danger">Error saving.</span>
-        <img src="/static/anywhere/images/spinner-small.gif" class="pa_hidden" id="id_save_spinner" />
-        
-          <span id="id_keyboard_shortcuts"><a href="#">Keyboard shortcuts:</a></span>
-          <select id="id_keybinding_mode_select" class="form-control input-sm">
-            <option value="normal">Normal</option>
-            <option value="vim">Vim</option>
-          </select>
-        
-        <button id="id_display_sharing_options" class="btn btn-default" data-toggle="modal" data-target="#id_file_sharing_modal" title="Get a URL to share this file">
-          <span class="glyphicon glyphicon-paperclip" aria-hidden="true"></span>
-          Share
-        </button>
-        
-          <button id="id_save" class="btn btn-success" title="Save (Ctrl + S)">
-            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
-            Save
-          </button>
-          <button id="id_save_as" class="btn btn-default" title="Save As">Save as...</button>
-        
-        
-
-        
-          
-            <form class="reload_web_app" style="display: flex" method="POST" action="/user/amaanooo/webapps/amaanooo.pythonanywhere.com/reload">
-              <button class="btn btn-default" type="submit" title="Reload amaanooo.pythonanywhere.com">
-                <i class="glyphicon glyphicon-refresh"></i>
-              </button>
-              <img style="display: none;" class="spinner" src="/static/anywhere/images/spinner-small.gif" />
-              <div style="display: none; clear: both;" class="alert alert-danger error_message generic_error">
-                There was a problem. If this keeps happening, please <a href="" class="feedback_link">send us feedback</a>.
-              </div>
-              <div style="display: none; clear: both;" class="alert alert-danger error_message slow_startup_error">
-                Your webapp took a long time to reload. It probably reloaded, but we were unable to check it.
-              </div>
-              <div style="display: none; clear: both;" class="alert alert-danger error_message virtualenv_error">
-                There is a problem with your virtualenv setup. Look at the <b>virtualenv</b> section on the web app tab for details.
-              </div>
-              <div style="display: none; clear: both;" class="alert alert-danger error_message cname_error">
-                There is a problem with your DNS configuration. Take a look at the <b>DNS setup</b> section on the web app tab for details.
-              </div>
-            </form>
-          
-        
-      </div>
-    </div>
-
-  </div>
-
-
-    </div>
-
-    <div class="dropdown fullscreen-hamburger fullscreen-mini-nav">
-      <button type="button" class="navbar-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <ul class="dropdown-menu pull-right">
-        
-  <li class=""><a id="id_dashboard_link" href="/user/amaanooo/">Dashboard</a></li>
-  <li class=""><a id="id_consoles_link" href="/user/amaanooo/consoles/">Consoles</a></li>
-  <li class=""><a id="id_files_link" href="/user/amaanooo/files/home/amaanooo">Files</a></li>
-  <li class=""><a id="id_web_app_link" href="/user/amaanooo/webapps/">Web</a></li>
-  <li class=""><a id="id_tasks_link" href="/user/amaanooo/tasks_tab/">Tasks</a></li>
-  <li class=""><a id="id_databases_link" href="/user/amaanooo/databases/">Databases</a></li>
-
-
-        <li class=""><a href="" class="feedback_link">Send feedback</a></li>
-<li class=""><a href="/forums/" class="forums_link">Forums</a></li>
-<li class=""><a href="https://help.pythonanywhere.com/" class="help_link">Help</a></li>
-<li class=""><a href="https://blog.pythonanywhere.com/" class="blog_link">Blog</a></li>
-
-  
-  <li class=""><a href="/user/amaanooo/account/" class="account_link">Account</a></li>
-  <li class="">
-    <form action="/logout/" method="POST">
-      <input type='hidden' name='csrfmiddlewaretoken' value='v69gCWlc4RCtTydX0rqo1S6qJH5hPCgs' />
-      <button type="submit" class="btn-link logout_link">Log out</button>
-    </form>
-  </li>
-
-
-      </ul>
-    </div>
-
-  </nav>
-
-
-
-        
-    
-
-
-        
-  <div>
-    <div id="id_ide_split_panes">
-
-      
-        <div id="id_editor">
-{% extends &quot;layout.html&quot; %}
+{% extends "layout.html" %}
 {% block title %} Student Management System | PATHFINDER {% endblock %}
 {% block body %}
 
-&lt;div class=&quot;row&quot;&gt;
- &lt;div class=&quot;col-xs-12&quot;&gt;
-      &lt;h3 class=&quot;text-left&quot;&gt;&lt;a href=&#39;/regi&#39;&gt;REGISTER NEW STUDENT&lt;/a&gt;&lt;/h3&gt;
- &lt;h3 class=&quot;text-left&quot;&gt;&lt;a href=&#39;/payments&#39;&gt;SHOW PAYMENT DETAILS&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 class=&quot;text-success text-center&quot;&gt; CURRENTLY REGISTERED STUDENTS &lt;/h2&gt;
-&lt;table class=&quot;table&quot; id=&quot;tb1&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th scope=&quot;col&quot;&gt;ID&lt;/th&gt;
-      &lt;th scope=&quot;col&quot;&gt;FirstName&lt;/th&gt;
-      &lt;th scope=&quot;col&quot;&gt;LastName&lt;/th&gt;
-      &lt;th scope=&quot;col&quot;&gt;Phone&lt;/th&gt;
-	  &lt;th scope=&quot;col&quot;&gt;AddDate&lt;/th&gt;
-	  &lt;th scope=&quot;col&quot;&gt;Address&lt;/th&gt;
-      &lt;th scope=&quot;col&quot;&gt;School&lt;/th&gt;
-      &lt;th scope=&quot;col&quot;&gt;Category&lt;/th&gt;
-      &lt;th scope=&quot;col&quot;&gt;Batch&lt;/th&gt;
-	  &lt;th scope=&quot;col&quot;&gt;Class&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
+<div class="row">
+ <div class="col-xs-12">
+      <h3 class="text-left"><a href='/regi'>REGISTER NEW STUDENT</a></h3>
+ <h3 class="text-left"><a href='/payments'>SHOW PAYMENT DETAILS</a></h3>
+<h2 class="text-success text-center"> CURRENTLY REGISTERED STUDENTS </h2>
+<table class="table" id="tb1">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Phone</th>
+	  <th scope="col">AddDate</th>
+	  <th scope="col">Address</th>
+      <th scope="col">School</th>
+      <th scope="col">Category</th>
+      <th scope="col">Batch</th>
+	  <th scope="col">Class</th>
+	  <th scope="col">DOB</th>
+    </tr>
+  </thead>
+  <tbody>
    {% for itr in stu %}
 
-   &lt;tr&gt;
+   <tr>
 
-      &lt;td&gt;{{itr.id}}&lt;/td&gt; &lt;td&gt;{{itr.firstname}}&lt;/td&gt; &lt;td&gt;{{itr.lastname}} &lt;/td&gt; &lt;td&gt;{{itr.phone}} &lt;/td&gt; &lt;td&gt; {{itr.dateAdd}} &lt;/td&gt;
-	  &lt;td&gt; {{itr.addr}} &lt;/td&gt; &lt;td&gt;{{itr.school}}&lt;/td&gt;&lt;td&gt;{{itr.optradio}}&lt;/td&gt; &lt;td&gt;{{itr.batch}}&lt;/td&gt; &lt;td&gt;{{itr.cls}}&lt;/td&gt;
-	&lt;/tr&gt;
+      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}}  </td> <td> {{itr.dateAdd}} </td>
+	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.cls}}</td><td>{{itr.dob}}</td>
+	</tr>
     {% endfor %}
-  &lt;/tbody&gt;
-  &lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+  </tbody>
+  </table>
+</div>
+</div>
 
 
 
-  &lt;div class=&quot;form-group row&quot;&gt;
-  &lt;div class=&quot;col-xs-6&quot;&gt;
-  &lt;form method=&quot;POST&quot; action=&quot;/&quot;&gt;
-  &lt;h2&gt;Add money now&lt;/h2&gt;
-    &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;id&quot; id=&quot;id&quot;placeholder=&quot;Select The Table below to select value of ID here&quot;&gt;
-	&lt;br&gt;
-	&lt;input type=&quot;number&quot;class=&quot;form-control&quot; name=&quot;amount&quot;placeholder=&quot;Enter the amount the student with the above id wants you to pay&quot;&gt;
-	&lt;br&gt;
-	&lt;br&gt;
+  <div class="form-group row">
+  <div class="col-xs-6">
+  <form method="POST" action="/">
+  <h2>Add money now</h2>
+    <input type="text" class="form-control" name="id" id="id"placeholder="Select The Table row from above to select value of ID here">
+	<br>
+	<input type="number"class="form-control" name="amount"placeholder="Enter the amount the student with the above id wants you to pay">
+	<br>
+	<input placeholder="Enter MoneyAdd Date" class="form-control textbox-n" type="text" onfocus="(this.type='date')"  id="date" name="dt">
+	<br>
+	<br>
 
-  &lt;button type=&quot;submit&quot; id=&quot;button1&quot;class=&quot;form-control btn btn-primary&quot;&gt;Pay Now&lt;/button&gt;
-  &lt;/form&gt;
-  &lt;/div&gt;
-   &lt;div class=&quot;col-xs-6&quot;&gt;
-   &lt;form method=&quot;POST&quot; action=&quot;/delete&quot;&gt;
-   &lt;br&gt;
+  <button type="submit" id="button1"class="form-control btn btn-primary">Pay Now</button>
+  </form>
+  </div>
+   <div class="col-xs-6">
+   <form method="POST" action="/delete">
+   <br>
 
-   &lt;h2&gt;UnRegister student&lt;/h2&gt;
-   &lt;br&gt;
-   &lt;input type=&quot;text&quot; class=&quot;form-control&quot; name=&quot;id2&quot; id=&quot;id2&quot;placeholder=&quot;Select any student from above to delete&quot;&gt;
-	&lt;br&gt;
-	&lt;br&gt;
-	&lt;button type=&quot;submit&quot; class=&quot;form-control btn btn-danger&quot;&gt;Delete Now&lt;/button&gt;
-   &lt;/form&gt;
-   &lt;/div&gt;
-
-
+   <h2>UnRegister student</h2>
+   <br>
+   <input type="text" class="form-control" name="id2" id="id2"placeholder="Select any student from above to delete">
+	<br>
+	<br>
+	<button type="submit" class="form-control btn btn-danger">Delete Now</button>
+   </form>
+   </div>
 
 
 
-  &lt;script&gt;
 
-                var table = document.getElementById(&#39;tb1&#39;);
 
-                for(var i = 1; i &lt; table.rows.length; i++)
+  <script>
+
+                var table = document.getElementById('tb1');
+
+                for(var i = 1; i < table.rows.length; i++)
                 {
                     table.rows[i].onclick = function()
                     {
                          //rIndex = this.rowIndex;
-                         document.getElementById(&quot;id&quot;).value = this.cells[0].innerHTML;
-						 document.getElementById(&quot;id2&quot;).value=this.cells[0].innerHTML;
+                         document.getElementById("id").value = this.cells[0].innerHTML;
+						 document.getElementById("id2").value=this.cells[0].innerHTML;
 
                     };
                 }
 
-         &lt;/script&gt;
+         </script>
 {% endblock %}
-</div>
-      
-
-      <div id="id_ide_console">
-        
-          <div id="id_ide_console_pane_buttons">
-            <center>
-              
-                <p>This is not a Python file, you can't run it here.</p>
-              
-            </center>
-          </div>
-          <iframe style="display: none" id="id_console" name="console" class="soft_keyboard_sensitive">
-          </iframe>
-          <div style="display: none;" class="console_limit_reached">
-            <div class="container">
-    <div class="row">
-        <div class="col-md-5 col-md-offset-3 well">
-            <h1>Console limit reached :-/</h1>
-
-            <p>
-            With your current PythonAnywhere account you can have up to
-            2 consoles.  You can
-            have more if you
-            <a href="/user/amaanooo/account/">upgrade your account</a>!
-
-            <p>
-            Alternatively, if you don't feel like paying us more money, you
-            can <a href="/user/amaanooo/consoles/">kill some consoles on your Consoles page</a>.
-        </div>
-    </div>
-</div>
-
-
-          </div>
-        
-      </div>
-
-    </div>
-
-    <div id="id_go_to_line_dialog" class="pa_hidden">
-      <p class="form-inline">Line number: <input id="id_go_to_line_dialog_input" /></p>
-      <div class="dialog_buttons">
-        <button class="btn btn-default" id="id_go_to_line_dialog_ok_button">Go</button>
-        <button class="btn btn-default" id="id_go_to_line_dialog_close_button">Close</button>
-      </div>
-    </div>
-
-    <div id="id_file_changed_on_disk" class="pa_hidden">
-      <p>Are you sure you want to save it?  Alternatively, you could re-open it in a new tab to check differences</p>
-      <div class="dialog_buttons">
-        <button id="id_force_save" class="btn btn-danger">Force Save</button>
-        <button id="id_cancel_save" class="btn btn-default">Cancel</button>
-      </div>
-    </div>
-
-    <div id="id_save_as_dialog" class="pa_hidden">
-      <form class="form-inline">
-        <div class="form-group">
-          <label for="id_save_as_path">Please enter a path:</label>
-          <input id="id_save_as_path" class="form-control" style="width: 100%;" />
-        </div>
-        <img id="id_save_as_spinner" class="spinner pa_hidden" src="/static/anywhere/images/spinner-small.gif" />
-        <p>
-          <span id="id_save_as_error" class="error_message"></span>
-        </p>
-        <div class="dialog_buttons">
-          <button id="id_save_as_ok" type="submit" class="btn btn-primary">Save</button>
-          <button id="id_save_as_cancel" type="button" class="btn btn-default">Cancel</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="modal fade" id="id_file_sharing_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">File Sharing options</h4>
-          </div>
-          <div class="modal-body">
-            <div id="id_file_sharing_options"></div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-
-        
-      </div>
-
-        
-
-
-        <div id="id_feedback_dialog" title="Help us improve" style="display:none">
-    <div id="id_feedback_dialog_blurb_big" class="dialog_blurb_big">
-        It's always a pleasure to hear from you!
-    </div>
-    <div id="id_feedback_dialog_blurb_small">
-        Ask us a question, or tell us what you love or hate about PythonAnywhere.<br/>
-        We'll get back to you over email ASAP.
-    </div>
-    <textarea id="id_feedback_dialog_text" rows="6"></textarea>
-    <input id="id_feedback_dialog_email_address" type="text" placeholder="Email address (optional - only necessary if you would like us to contact you)"/>
-    
-    <div id="id_feedback_dialog_error" class="pa_hidden">
-        Sorry, there was an error connecting to the server. <br/>Please try again in a few moments...
-    </div>
-    <div class="dialog_buttons">
-        <img id="id_feedback_dialog_spinner" src="/static/anywhere/images/spinner-small.gif" />
-        <button class="btn btn-primary" id="id_feedback_dialog_ok_button">OK</button>
-        <button class="btn btn-default" id="id_feedback_dialog_cancel_button">Cancel</button>
-    </div>
-</div>
-
-
-        
-            <script>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-                ga('create', 'UA-18014859-6', 'auto');
-                ga('send', 'pageview');
-            </script>
-        
-
-        
-        <!-- preload font awesome fonts to avoid glitch when switching icons -->
-        <div style="width: 0; height: 0; overflow: hidden"><i class="fa fa-square-o fa-3x" ></i></div>
-    </body>
-</html>
