@@ -263,4 +263,5 @@ def invoice():
 
 
 if __name__ == "__main__":
-	app.run(debug=True)
+    app.secret_key = "something random"
+    app.run(debug=True)
