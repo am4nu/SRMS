@@ -77,7 +77,7 @@ class Reg(db.Model):
 		return "<ID {} >".format(str(self.id))
 
 
-app.secret_key = "something random"
+
 
 
 @app.route('/login', methods=['POST', "GET"])
@@ -264,3 +264,5 @@ def invoice():
 
 if __name__ == "__main__":
 	app.run(debug=True)
+    app.secret_key = "something random"
+    
