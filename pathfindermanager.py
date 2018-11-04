@@ -16,20 +16,6 @@ db = SQLAlchemy(app)
 
 
 class Pathfinder(db.Model):
-<<<<<<< HEAD
-	id=db.Column(db.String(100),nullable=False,primary_key=True,unique=True,autoincrement=False)
-	firstname=db.Column(db.String(80),nullable=False)
-	lastname=db.Column(db.String(80),nullable=False)
-	middlename=db.Column(db.String(80),nullable=True)
-	addr=db.Column(db.String(80),nullable=False)
-	school=db.Column(db.String(80),nullable=True)
-	fname=db.Column(db.String(80),nullable=True)
-	phone=db.Column(db.Integer,nullable=True)
-	batch=db.Column(db.String(4),nullable=True)
-	dateAdd=db.Column(db.String(10),nullable=False)
-	optradio=db.Column(db.String(10),nullable=False)
-	cls=db.Column(db.Integer,nullable=False)
-=======
 	id = db.Column(
     db.String(100),
     nullable=False,
@@ -48,15 +34,11 @@ class Pathfinder(db.Model):
 	dateAdd = db.Column(db.String(10), nullable=False)
 	optradio = db.Column(db.String(10), nullable=False)
 	cls = db.Column(db.Integer, nullable=False)
->>>>>>> master
 
 	def __repr__(self):
 		return "<ID & Name  {} >".format(str(self.id))
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 class Reg(db.Model):
 	id = db.Column(
     db.String(100),
@@ -93,12 +75,6 @@ class Reg(db.Model):
 
 	def __repr__(self):
 		return "<ID {} >".format(str(self.id))
-<<<<<<< HEAD
-app.secret_key = "something random"
-@app.route('/login', methods=['POST',"GET"])
-def do_admin_login():
-	if request.method=="POST":
-=======
 
 
 app.secret_key = "something random"
@@ -107,7 +83,6 @@ app.secret_key = "something random"
 @app.route('/login', methods=['POST', "GET"])
 def do_admin_login():
 	if request.method == "POST":
->>>>>>> master
 		if request.form['password'] == 'Secret55!' and request.form['username'] == 'noname':
 			session['logged_in'] = True
 			return redirect("/")
@@ -116,37 +91,12 @@ def do_admin_login():
 	else:
 		return render_template("/login.html")
 
-<<<<<<< HEAD
-=======
 
->>>>>>> master
 @app.route("/logout")
 def logout():
     session['logged_in'] = False
     return redirect("/login")
 
-<<<<<<< HEAD
-@app.route("/regi",methods=["POST","GET"])
-def home():
-	if not session.get('logged_in'):
-		return render_template('login.html')
-	if request.method=="POST":
-		fn=request.form.get("firstname")
-		ln=request.form.get("lastname")
-		mn=request.form.get("middlename")
-		addr=request.form.get("addr")
-		school=request.form.get("school")
-		fname=request.form.get("fname")
-		phone=request.form.get("phone")
-		batch=request.form.get("batch")
-		dateAdd=request.form.get("dateAdd")
-		cls=request.form.get("cls")
-		optradio=request.form.get("optradio")
-		pathfinder=Pathfinder(id=fn+ln+str(phone)+dateAdd,firstname=fn,lastname=ln,middlename=mn,addr=addr,phone=phone,school=school,cls=cls,fname=fname,batch=batch,dateAdd=dateAdd,optradio=optradio)
-		pt= Pathfinder.query.filter_by(id=fn+ln+str(phone)+str(dateAdd),).all() #queries for that particular record in the db
-		#print(pt)
-		if(len(pt)==0): #if the record is not alrdy there it add's it
-=======
 
 @app.route("/regi", methods=["POST", "GET"])
 def home():
@@ -187,7 +137,6 @@ def home():
     ).all()  # queries for that particular record in the db
 		# print(pt)
 		if(len(pt) == 0):  # if the record is not alrdy there it add's it
->>>>>>> master
 			db.session.add(pathfinder)
 			db.session.commit()
 			temp = Reg(id=fn + ln + str(phone) + dateAdd, firstname=fn, lastname=ln)
@@ -200,11 +149,7 @@ def home():
 		return render_template("regi.html")
 
 
-<<<<<<< HEAD
-@app.route("/",methods=["POST","GET"])
-=======
 @app.route("/", methods=["POST", "GET"])
->>>>>>> master
 def pay():
     if not session.get('logged_in'):
         return render_template('login.html')
@@ -318,9 +263,4 @@ def invoice():
 
 
 if __name__ == "__main__":
-<<<<<<< HEAD
 	app.run(debug=True)
-=======
-    app.secret_key = "something random"
-    app.run(debug=True)
->>>>>>> master
