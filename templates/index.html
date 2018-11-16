@@ -5,15 +5,13 @@
 
 <div class="row">
  <div class="col-xs-12">
-      <h3 class="text-left"><a href='/regi'>REGISTER NEW STUDENT</a></h3>
- <h3 class="text-left"><a href='/payments'>SHOW PAYMENT DETAILS</a></h3>
-<h2 class="text-success text-center"> CURRENTLY REGISTERED STUDENTS </h2>
 <table class="table" id="tb1">
   <thead>
     <tr>
       <th scope="col">ID</th>
       <th scope="col">FirstName</th>
       <th scope="col">LastName</th>
+       <th scope="col">Guardian's Name</th>
       <th scope="col">Phone</th>
 	  <th scope="col">AddDate</th>
 	  <th scope="col">Address</th>
@@ -29,7 +27,7 @@
 
    <tr>
 
-      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}}  </td> <td> {{itr.dateAdd}} </td>
+      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td><td>{{itr.fname}} </td> <td>{{itr.phone}}  </td> <td> {{itr.dateAdd}} </td>
 	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.cls}}</td><td>{{itr.dob}}</td>
 	</tr>
     {% endfor %}

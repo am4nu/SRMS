@@ -77,7 +77,7 @@ class Reg(db.Model):
 		return "<ID {} >".format(str(self.id))
 
 
-
+app.secret_key = "something random"
 
 
 @app.route('/login', methods=['POST', "GET"])
@@ -116,10 +116,9 @@ def home():
 		dob = request.form.get("dob")
 		optradio = request.form.get("optradio")
 		pathfinder = Pathfinder(
-    id=fn +
-    ln +
-    str(phone) +
-    dateAdd,
+    id=fn[0:3] +
+    ln[0:3] +
+    str(phone)[7:10],
     firstname=fn,
     lastname=ln,
     middlename=mn,
@@ -133,13 +132,12 @@ def home():
     optradio=optradio,
      dob=dob)
 		pt = Pathfinder.query.filter_by(
-    id=fn + ln + str(phone) + str(dateAdd),
-    ).all()  # queries for that particular record in the db
+    id=fn[0:3] + ln[0:3] + str(phone)[7:10]).all()  # queries for that particular record in the db
 		# print(pt)
 		if(len(pt) == 0):  # if the record is not alrdy there it add's it
 			db.session.add(pathfinder)
 			db.session.commit()
-			temp = Reg(id=fn + ln + str(phone) + dateAdd, firstname=fn, lastname=ln)
+			temp = Reg(id=fn[0:3] + ln[0:3] + str(phone)[7:10], firstname=fn, lastname=ln)
 			db.session.add(temp)
 			db.session.commit()
 			return redirect("/")
@@ -263,6 +261,4 @@ def invoice():
 
 
 if __name__ == "__main__":
-	app.secret_key = "something random"
 	app.run(debug=True)
-    

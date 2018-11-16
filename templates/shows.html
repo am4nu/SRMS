@@ -8,6 +8,7 @@
       <th scope="col">ID</th>
       <th scope="col">FirstName</th>
       <th scope="col">LastName</th>
+       <th scope="col">Guardian's Name</th>
       <th scope="col">Phone</th>
 	  <th scope="col">AddDate</th>
 	  <th scope="col">Address</th>
@@ -15,17 +16,18 @@
       <th scope="col">Category</th>
       <th scope="col">Batch</th>
 	  <th scope="col">Class</th>
+	  <th scope="col">DOB</th>
     </tr>
   </thead>
   <tbody>
    {% for itr in stu %}
-   
+
    <tr>
-   
-      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td> <td>{{itr.phone}} </td> <td> {{itr.dateAdd}} </td>
-	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.cls}}</td>
+
+      <td>{{itr.id}}</td> <td>{{itr.firstname}}</td> <td>{{itr.lastname}} </td><td>{{itr.fname}} </td> <td>{{itr.phone}}  </td> <td> {{itr.dateAdd}} </td>
+	  <td> {{itr.addr}} </td> <td>{{itr.school}}</td><td>{{itr.optradio}}</td> <td>{{itr.batch}}</td> <td>{{itr.cls}}</td><td>{{itr.dob}}</td>
 	</tr>
     {% endfor %}
   </tbody>
-</table>
+  </table>
 {% endblock %}
