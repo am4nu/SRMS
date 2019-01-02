@@ -78,7 +78,7 @@ class Reg(db.Model):
 		return "<ID {} >".format(str(self.id))
 
 
-app.secret_key = "something random"
+app.secret_key = "kbbjbbhhvvvt"
 
 
 @app.route('/login', methods=['POST', "GET"])
